@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Salfa Tissue – Luxury Softness</title>
-
 <style>
-:root { --salfa-blue: #0D1F51; }
+:root {
+  --salfa-blue: #0D1F51;
+}
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -31,7 +34,9 @@ header {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-header img { height: 60px; }
+header img {
+  height: 60px;
+}
 
 nav a {
   margin-left: 25px;
@@ -44,19 +49,23 @@ nav a {
 /* HERO */
 .hero {
   position: relative;
-  height: calc(100vh - 80px);
+  width: 100%;
+  height: 100vh; /* full viewport */
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: 30px 50px;
   overflow: hidden;
 }
 
 .hero video {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  width: auto;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
   object-fit: cover;
 }
 
@@ -72,10 +81,15 @@ nav a {
   color: var(--salfa-blue);
   font-size: 48px;
   letter-spacing: 4px;
+  z-index: 2;
+  text-align: right;
+  margin: 30px;
 }
 
-/* SECTIONS */
-section { padding: 120px 10% 80px; }
+/* ABOUT */
+section {
+  padding: 120px 10% 80px;
+}
 
 .section-title {
   text-align: center;
@@ -85,24 +99,21 @@ section { padding: 120px 10% 80px; }
   margin-bottom: 20px;
 }
 
-/* ABOUT */
 .about-tagline {
   text-align: center;
   font-size: 22px;
   font-weight: bold;
-  color: #0D1F51; /* deep blue */
+  color: var(--salfa-blue);
   margin-bottom: 50px;
-  line-height: 1.5;
 }
-
 
 .about-row {
   display: flex;
   align-items: center;
   gap: 40px;
   margin-bottom: 60px;
-  background: #f7f7f7; /* about background same as feedback */
-  padding: 20px;
+  background: #f7f7f7; /* same as feedback */
+  padding: 30px;
   border-radius: 12px;
 }
 
@@ -134,7 +145,9 @@ section { padding: 120px 10% 80px; }
   text-decoration: none;
 }
 
-.product:hover { transform: translateY(-8px); }
+.product:hover {
+  transform: translateY(-8px);
+}
 
 .product img {
   width: 100%;
@@ -143,7 +156,10 @@ section { padding: 120px 10% 80px; }
 }
 
 .product h3,
-.product p { text-align: center; color: var(--salfa-blue); }
+.product p {
+  text-align: center;
+  color: var(--salfa-blue);
+}
 
 /* BUTTON */
 .products-more {
@@ -160,11 +176,6 @@ section { padding: 120px 10% 80px; }
 }
 
 /* FEEDBACK */
-.feedback {
-  background: #f7f7f7;
-  padding: 40px 10%;
-}
-
 .feedback textarea {
   width: 100%;
   padding: 15px;
@@ -191,15 +202,28 @@ footer {
   line-height: 1.6;
 }
 
-footer a { color: white; text-decoration: none; }
+footer a {
+  color: white;
+  text-decoration: none;
+}
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .about-row { flex-direction: column; text-align: center; }
+  .about-row {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -226,12 +250,12 @@ footer a { color: white; text-decoration: none; }
   <p class="about-tagline">Softness You Can Feel. Comfort You Can Trust.</p>
 
   <div class="about-row">
-    <img src="salfa akhdar add.png">
+    <img src="salfa akhdar add.png" alt="">
     <p>Moments of care begin with a simple touch of softness.</p>
   </div>
 
   <div class="about-row">
-    <img src="logo azraa add salfa.png">
+    <img src="logo azraa add salfa.png" alt="">
     <p>Because even the smallest hands deserve the softest care.</p>
   </div>
 </section>
@@ -242,32 +266,32 @@ footer a { color: white; text-decoration: none; }
 
   <div class="products">
     <a href="product-detail.html?name=Facial Tissue&price=2.50&img=salfa%20ahmar%20wej%20lahalo.jpeg" class="product">
-      <img src="salfa ahmar wej lahalo.jpeg">
+      <img src="salfa ahmar wej lahalo.jpeg" alt="Facial Tissue">
       <h3>Facial Tissue</h3>
       <p>$2.50</p>
     </a>
 
     <a href="product-detail.html?name=Hand Towel&price=3.00&img=salfa%20azraa%20wej%20lahalo.jpeg" class="product">
-      <img src="salfa azraa wej lahalo.jpeg">
+      <img src="salfa azraa wej lahalo.jpeg" alt="Hand Towel">
       <h3>Hand Towel</h3>
       <p>$3.00</p>
     </a>
 
     <a href="product-detail.html?name=Soft Tissue&price=4.00&img=salfa%20akhadr%20lahalo.jpeg" class="product">
-      <img src="salfa akhadr lahalo.jpeg">
+      <img src="salfa akhadr lahalo.jpeg" alt="Soft Tissue">
       <h3>Soft Tissue</h3>
       <p>$4.00</p>
     </a>
 
     <a href="product-detail.html?name=Salfa Gentle&price=5.00&img=kis%20lahalo%20bidoun%20logo.jpeg" class="product">
-      <img src="kis lahalo bidoun logo.jpeg">
+      <img src="kis lahalo bidoun logo.jpeg" alt="Salfa Gentle">
       <h3>Salfa Gentle</h3>
       <p>$5.00</p>
     </a>
   </div>
 
   <div class="products-more">
-    <a href="product.html">View More Products</a>
+    <a href="products.html">View More Products</a>
   </div>
 </section>
 
@@ -282,7 +306,7 @@ footer a { color: white; text-decoration: none; }
 </section>
 
 <footer>
-  © 2025 SALFA TISSUE |  Softness<br>
+  © 2025 SALFA TISSUE — LUXURY SOFTNESS<br>
   📞 03 793 048 | ✉️ <a href="mailto:salfatissue@gmail.com">salfatissue@gmail.com</a>
 </footer>
 
