@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Place Order – Salfa Tissue</title>
+
+<style>
+:root{--salfa-blue:#0D1F51;}
+body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333;
+display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;}
+.box{max-width:400px;width:100%;}
+h1{color:var(--salfa-blue);}
+input{width:100%;padding:14px;margin:15px 0;font-size:16px;border-radius:8px;border:1px solid #ccc;}
+button{padding:14px 50px;background:var(--salfa-blue);color:white;border:none;border-radius:30px;font-size:16px;cursor:pointer;}
+a{color:var(--salfa-blue);text-decoration:none;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Complete Your Order</h1>
+  <p id="info"></p>
+
+  <input type="tel" id="phone" placeholder="Your phone number">
+
+  <button onclick="sendWhatsApp()">Send Order via WhatsApp</button>
+
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const qty = params.get("qty");
+
+document.getElementById("info").textContent =
+  `Product: ${name} | Quantity: ${qty}`;
+
+function sendWhatsApp(){
+  const phone = document.getElementById("phone").value;
+  if(!phone){ alert("Please enter your phone number"); return; }
+
+  const message =
+`New Order from Salfa Website:
+Product: ${name}
+Quantity: ${qty}
+Customer Phone: ${phone}`;
+
+  window.open(
+    "https://wa.me/9613793048?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>

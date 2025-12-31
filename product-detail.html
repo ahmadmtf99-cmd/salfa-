@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Detail – Salfa Tissue</title>
+
+<style>
+:root{--salfa-blue:#0D1F51;}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#fff;
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background:rgba(255,255,255,0.95);
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;
+  width:100%;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  z-index:10;
+}
+
+header img{height:60px;}
+
+header a{
+  background:var(--salfa-blue);
+  color:white;
+  padding:10px 22px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* MAIN */
+main{
+  padding:140px 10% 80px;
+  display:flex;
+  justify-content:center;
+}
+
+.product-detail{
+  text-align:center;
+}
+
+.product-detail img{
+  width:300px;
+  height:300px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+.product-detail h2{
+  color:var(--salfa-blue);
+  margin-bottom:15px;
+}
+
+.quantity-selector{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.quantity-selector button{
+  width:40px;
+  height:40px;
+  font-size:20px;
+  background:var(--salfa-blue);
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.quantity-selector span{
+  margin:0 15px;
+  font-size:18px;
+}
+
+.price{
+  font-size:24px;
+  color:var(--salfa-blue);
+  margin-bottom:25px;
+}
+
+.order-btn{
+  padding:14px 50px;
+  background:var(--salfa-blue);
+  color:white;
+  border-radius:30px;
+  font-size:16px;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.order-btn:hover{opacity:0.9;}
+
+.contact{
+  margin-top:20px;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="Screenshot 2025-12-29 115617.png" alt="Salfa Logo">
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<main>
+  <div class="product-detail">
+    <img id="product-img" alt="Product Image">
+    <h2 id="product-name"></h2>
+
+    <div class="quantity-selector">
+      <button onclick="decrease()">-</button>
+      <span id="quantity">1</span>
+      <button onclick="increase()">+</button>
+    </div>
+
+    <div class="price">
+      $<span id="price"></span>
+    </div>
+
+    <a id="orderBtn" class="order-btn" target="_blank">
+      Order via WhatsApp
+    </a>
+
+    <div class="contact">
+      Or contact us: 03793048
+    </div>
+  </div>
+</main>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const name = params.get("name");
+const img = params.get("img");
+const basePrice = parseFloat(params.get("price"));
+
+document.getElementById("product-name").textContent = name;
+document.getElementById("product-img").src = img;
+
+let quantity = 1;
+
+function updatePrice(){
+  document.getElementById("price").textContent = (basePrice * quantity).toFixed(2);
+  document.getElementById("quantity").textContent = quantity;
+
+  const message =
+    `Hello Salfa,%0A` +
+    `I want to order:%0A` +
+    `Product: ${name}%0A` +
+    `Quantity: ${quantity}%0A` +
+    `Price: $${(basePrice * quantity).toFixed(2)}`;
+
+  document.getElementById("orderBtn").href =
+    `https://wa.me/9613793048?text=${message}`;
+}
+
+function increase(){
+  quantity++;
+  updatePrice();
+}
+
+function decrease(){
+  if(quantity > 1){
+    quantity--;
+    updatePrice();
+  }
+}
+
+updatePrice();
+</script>
+
+</body>
+</html>
