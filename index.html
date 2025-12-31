@@ -51,17 +51,27 @@ nav a {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 30px 50px;
+  justify-content: center;
   position: relative;
-  background: url('logo azraa add salfa.png') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .hero h1 {
-  position: relative;
   color: var(--salfa-blue);
   font-size: 48px;
   letter-spacing: 4px;
+  text-align: center;
+  z-index: 1;
 }
 
 /* SECTIONS */
@@ -91,7 +101,7 @@ section {
   align-items: center;
   gap: 40px;
   margin-bottom: 60px;
-  background: #f0f0f0; /* same as feedback background */
+  background: #f0f0f0;
   padding: 20px;
   border-radius: 12px;
 }
@@ -198,6 +208,12 @@ footer a {
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+}
 </style>
 </head>
 <body>
@@ -211,9 +227,11 @@ footer a {
     <a href="#feedback">FEEDBACK</a>
   </nav>
 </header>
+
 <!-- HERO -->
-<div id="home" class="hero" style="background: url('ChatGPT Image Dec 31, 2025, 05_34_46 PM.png') center/cover no-repeat;">
-  <h1>SALFA </h1>
+<div id="home" class="hero">
+  <img src="ChatGPT Image Dec 31, 2025, 05_34_46 PM.png" alt="Salfa Hero">
+  <h1>SALFA</h1>
 </div>
 
 <!-- ABOUT -->
@@ -263,7 +281,7 @@ footer a {
   </div>
 
   <div class="products-more">
-    <a href="products.html">View More Products</a>
+    <a href="product.html">View More Products</a>
   </div>
 </section>
 
